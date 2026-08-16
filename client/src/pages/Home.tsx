@@ -1,33 +1,25 @@
-import { useAuth } from "@/_core/hooks/useAuth";
+import { AppHeader } from "@/components/AppHeader";
+import { CourseCard } from "@/components/CourseCard";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import { Skeleton } from "@/components/ui/skeleton";
+import { trpc } from "@/lib/trpc";
+import { ArrowRight, BookMarked, Compass, GraduationCap, ShieldCheck, Sparkles } from "lucide-react";
+import { Link } from "wouter";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Workflow, Frontend Best Practices, Design Guide and Common Pitfalls
- */
+const heroImage = "/manus-storage/edusphere-hero_8d260c0b.jpg";
+const instructorImage = "/manus-storage/edusphere-instructor_80a2feb5.jpg";
+
 export default function Home() {
-  // The useAuth hook provides authentication state.
-  // To implement login/logout, call logout(), or start login from an event
-  // handler: onClick={() => startLogin()} (imported from "@/const"). Never call
-  // startLogin() during render (no href={startLogin()}) — it mints a one-time
-  // nonce cookie and must run only at the moment of navigation.
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
-    </div>
-  );
+  const featured = trpc.catalog.featured.useQuery();
+  const categories = trpc.catalog.categories.useQuery();
+  const instructors = trpc.catalog.instructors.useQuery();
+  return <div className="min-h-screen overflow-hidden bg-[#fdfbf5]"><AppHeader />
+    <main>
+      <section className="paper-noise relative overflow-hidden border-b border-slate-900/8 bg-[#f4efe2]"><div className="fine-grid absolute inset-0 opacity-50" /><div className="container relative grid gap-12 py-14 md:grid-cols-[1.03fr_.97fr] md:items-center md:py-20 lg:py-24"><div className="reveal"><p className="eyebrow mb-5">A more intentional way to learn</p><h1 className="font-display max-w-3xl text-5xl font-bold leading-[.97] tracking-[-.04em] text-[#183252] sm:text-6xl lg:text-7xl">Learn. <em className="font-display font-semibold text-[#a3691a]">Build.</em> Grow.</h1><p className="mt-7 max-w-xl text-base leading-8 text-slate-600 md:text-lg">EduSphere brings thoughtful courses, expert instruction, and meaningful progress together in one refined learning environment.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/courses"><Button size="lg" className="bg-[#173352] px-6 text-white hover:bg-[#24476d]">Explore courses <ArrowRight className="ml-2 h-4 w-4" /></Button></Link><Link href="/portal"><Button size="lg" variant="outline" className="border-[#173352]/20 bg-white/65 px-6 text-[#173352] hover:bg-white">Start learning</Button></Link></div><div className="mt-11 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold text-slate-600"><span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[#2f7362]" />Structured learning paths</span><span className="flex items-center gap-2"><BookMarked className="h-4 w-4 text-[#2f7362]" />Track every milestone</span></div></div><div className="relative reveal [animation-delay:80ms]"><div className="absolute -inset-5 rounded-[2.5rem] border border-[#173352]/10" /><div className="relative overflow-hidden rounded-[2rem] bg-[#173352] shadow-[0_28px_65px_rgba(23,51,82,.28)]"><img src={heroImage} alt="A student using a laptop at a study desk" className="aspect-[4/4.2] w-full object-cover opacity-90" /><div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/20 bg-[#12304ed9] p-4 text-white backdrop-blur"><p className="text-xs font-bold uppercase tracking-[.14em] text-[#f4d789]">A focused learning space</p><p className="mt-1 font-display text-xl">Small steps. Lasting capability.</p></div></div></div></div></section>
+      <section className="container py-18 md:py-24"><div className="mb-9 flex items-end justify-between gap-6"><div><p className="eyebrow">Start somewhere meaningful</p><h2 className="mt-2 font-display text-4xl font-bold tracking-tight text-[#173352]">Featured courses</h2></div><Link href="/courses" className="hidden text-sm font-bold text-[#173352] hover:text-[#9b6416] sm:flex sm:items-center sm:gap-2">View all courses <ArrowRight className="h-4 w-4" /></Link></div>{featured.isLoading ? <div className="grid gap-5 md:grid-cols-3">{[1,2,3].map((key) => <Skeleton key={key} className="h-[350px] rounded-[1.25rem]" />)}</div> : featured.data?.length ? <div className="grid gap-5 md:grid-cols-3">{featured.data.map((item: any, index: number) => <CourseCard item={item} priority={index === 0} key={item.course.id} />)}</div> : <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center"><Compass className="mx-auto h-7 w-7 text-[#b6812b]" /><p className="mt-3 font-display text-2xl font-bold text-[#173352]">The catalog is taking shape</p><p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-600">New published courses will appear here as instructors bring their learning paths to life.</p></div>}</section>
+      <section className="border-y border-slate-900/8 bg-[#173352] py-16 text-white"><div className="container grid gap-10 md:grid-cols-[.9fr_1.1fr]"><div><p className="eyebrow text-[#f1ca7d]">Explore with clarity</p><h2 className="mt-3 font-display text-4xl font-bold leading-tight">Find the subject that moves you forward.</h2><p className="mt-4 max-w-md leading-7 text-slate-300">Browse a growing collection of focused learning experiences, organized around the skills that matter to your next chapter.</p><Link href="/courses"><Button className="mt-7 bg-[#d6b26c] text-[#173352] hover:bg-[#e4c787]">Browse the catalog</Button></Link></div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3">{categories.isLoading ? [1,2,3,4,5,6].map((key) => <Skeleton className="h-24 bg-white/10" key={key} />) : categories.data?.slice(0, 6).map((category: any, index: number) => <Link href={`/courses?category=${category.id}`} key={category.id} className="group rounded-2xl border border-white/10 bg-white/[.07] p-4 transition hover:-translate-y-1 hover:bg-white/[.12]"><span className="text-xs font-bold text-[#f4d789]">0{index + 1}</span><p className="mt-5 text-sm font-bold leading-5">{category.name}</p></Link>)}</div></div></section>
+      <section className="container grid gap-10 py-20 md:grid-cols-2 md:items-center"><div className="relative overflow-hidden rounded-[2rem] bg-[#e9e2d1]"><img src={instructorImage} alt="An instructor sharing an idea" className="aspect-[4/3] w-full object-cover mix-blend-multiply" /><div className="absolute bottom-5 left-5 rounded-xl bg-[#fdfbf5] px-4 py-3 shadow-lg"><p className="text-xs font-bold uppercase tracking-[.14em] text-[#a3691a]">For educators</p><p className="font-display text-lg font-bold text-[#173352]">Teach what you know</p></div></div><div><p className="eyebrow">Built for generous expertise</p><h2 className="mt-3 font-display text-4xl font-bold leading-tight text-[#173352]">Turn your knowledge into a learning experience people remember.</h2><p className="mt-5 max-w-lg leading-7 text-slate-600">Plan lessons, build assessments, understand learner progress, and keep your teaching craft in one considered workspace.</p>{instructors.data?.length ? <div className="mt-6 grid gap-2 sm:grid-cols-3">{instructors.data.map((item: any) => <div key={item.instructor.id} className="rounded-xl bg-white p-3 shadow-sm"><p className="truncate text-sm font-bold text-[#173352]">{item.instructor.name || "EduSphere instructor"}</p><p className="mt-1 text-xs text-slate-500">{item.courseCount} published path{item.courseCount === 1 ? "" : "s"}</p></div>)}</div> : <div className="mt-7 grid gap-4 sm:grid-cols-2"><div className="rounded-2xl bg-white p-4 shadow-sm"><GraduationCap className="h-5 w-5 text-[#b6812b]" /><p className="mt-3 font-semibold text-slate-900">Create with structure</p><p className="mt-1 text-sm leading-5 text-slate-500">Organize sections, lessons, and assessments with care.</p></div><div className="rounded-2xl bg-white p-4 shadow-sm"><Sparkles className="h-5 w-5 text-[#b6812b]" /><p className="mt-3 font-semibold text-slate-900">See learning unfold</p><p className="mt-1 text-sm leading-5 text-slate-500">Use progress and enrollment insights to guide your next move.</p></div></div>}<Link href="/portal"><Button className="mt-7 bg-[#173352]">Open your workspace <ArrowRight className="ml-2 h-4 w-4" /></Button></Link></div></section>
+      <section className="mx-auto mb-14 max-w-[1180px] px-5"><div className="rounded-[2rem] bg-[#d6b26c] px-7 py-12 text-center md:px-14"><p className="eyebrow text-[#694109]">Begin deliberately</p><h2 className="mx-auto mt-3 max-w-2xl font-display text-4xl font-bold leading-tight text-[#173352]">Your next meaningful skill is waiting.</h2><p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-[#173352]/75">Choose a course, keep a steady rhythm, and take your learning seriously—without taking yourself too seriously.</p><Link href="/courses"><Button className="mt-7 bg-[#173352] px-6 text-white hover:bg-[#24476d]">Explore all courses</Button></Link></div></section>
+    </main><footer className="border-t border-slate-900/8 bg-white"><div className="container flex flex-col justify-between gap-5 py-8 text-sm text-slate-500 sm:flex-row"><span>© {new Date().getFullYear()} EduSphere. Learn with purpose.</span><div className="flex gap-5"><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/courses">Courses</Link></div></div></footer>
+  </div>;
 }

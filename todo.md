@@ -1,0 +1,24 @@
+# Project TODO
+
+- [x] Define EduSphere's full relational data model for user roles, categories, courses, sections, lessons, enrollments, progress, quizzes, quiz attempts, certificates, and purchases.
+- [x] Apply database migrations and create query helpers for all EduSphere domain entities.
+- [x] Implement server-side role-based authorization for student, instructor, and administrator operations.
+- [x] Add foreign-key constraints and typed relations across all EduSphere domain entities.
+- [x] Move remaining core entity mutations and reads behind reusable database helpers.
+- [x] Apply explicit student, instructor, and administrator procedure guards to all role-specific actions.
+- [x] Build public site navigation, premium landing page, featured courses, categories, instructor highlights, and about/contact content.
+- [x] Build a searchable, filterable course catalog with category, level, and price filters.
+- [x] Build course detail pages with curriculum, requirements, learning outcomes, instructor information, free/paid enrollment, and continue-learning states.
+- [x] Build authentication-aware account entry, profile management, and role-aware navigation using the platform authentication system.
+- [x] Build the learner video lesson interface with curriculum sidebar, lesson resources, previous/next navigation, and automatic progress tracking.
+- [x] Build quizzes with multiple-choice questions, automatic grading, attempt history, feedback, and score display.
+- [x] Build certificate eligibility and downloadable certificate presentation for completed courses.
+- [x] Build the student dashboard, my courses view, learning statistics, quiz score summaries, and certificates workspace.
+- [x] Build the instructor dashboard with course analytics, enrollment statistics, revenue overview, and course management.
+- [x] Build instructor course authoring for course details, sections, lessons, pricing, publication, and quizzes.
+- [x] Build the administrator dashboard and management areas for users, courses, categories, enrollments, analytics, and platform settings.
+- [x] Configure the paid-course checkout integration and server-side payment verification once payment credentials are available.
+- [x] Add Vitest coverage for core authorization, enrollment, progress, quiz grading, and certificate eligibility workflows.
+- [x] Verify desktop and mobile layouts, resolve errors, and refine the visual system for a polished premium experience.
+- [x] Create a secure server test for the Stripe-enforced paid enrollment workflow.
+- [ ] Create a final checkpoint and deliver the verified EduSphere project.
