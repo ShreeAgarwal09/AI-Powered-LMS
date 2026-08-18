@@ -4,7 +4,7 @@ import { trpc } from "@/lib/trpc";
 import { Accessibility, ArrowRight, BrainCircuit, ChartNoAxesCombined, CirclePlay, Compass, GraduationCap, HeartHandshake, Lightbulb, Rocket, Trophy } from "lucide-react";
 import { Link } from "wouter";
 
-const heroImage = "/manus-storage/edusphere-instructor_80a2feb5.jpg";
+const heroImage = "/images/edusphere-instructor.jpg";
 
 export default function About() {
   const categories = trpc.catalog.categories.useQuery();

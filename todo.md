@@ -76,5 +76,8 @@
 - [x] Implement the minimum Vercel-compatible static build and API routing configuration without changing application functionality.
 - [x] Verify the production build and deployment contract locally.
 - [x] Push the Vercel deployment fix to GitHub and provide redeploy guidance.
-- [ ] Correct the Vercel SPA fallback so built static assets, API routes, and public files are not rewritten to the HTML entrypoint.
-- [ ] Validate Vercel-style static assets, SPA deep links, and API function routing locally before final redeploy guidance.
+- [x] Correct the Vercel SPA fallback so built static assets, API routes, and public files are not rewritten to the HTML entrypoint.
+- [x] Validate Vercel-style static assets, SPA deep links, and API function routing locally before final redeploy guidance.
+- [ ] Audit live and source image URLs, Vite output, and Vercel static routing to identify the production image failure.
+- [ ] Apply the minimum production-safe fix for existing image delivery without altering the UI.
+- [ ] Verify image assets in the production build, run tests, and push the fix to GitHub.

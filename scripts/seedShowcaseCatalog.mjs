@@ -4,8 +4,8 @@ import mysql from "mysql2/promise";
 if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is required to seed EduSphere.");
 
 const thumbnailUrls = [
-  "/manus-storage/edusphere-hero_8d260c0b.jpg",
-  "/manus-storage/edusphere-instructor_80a2feb5.jpg",
+  "/images/edusphere-hero.jpg",
+  "/images/edusphere-instructor.jpg",
 ];
 
 const instructors = [

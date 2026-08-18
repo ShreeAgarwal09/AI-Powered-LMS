@@ -6,8 +6,8 @@ import { trpc } from "@/lib/trpc";
 import { ArrowRight, BookMarked, Compass, GraduationCap, ShieldCheck, Sparkles } from "lucide-react";
 import { Link } from "wouter";
 
-const heroImage = "/manus-storage/edusphere-hero_8d260c0b.jpg";
-const instructorImage = "/manus-storage/edusphere-instructor_80a2feb5.jpg";
+const heroImage = "/images/edusphere-hero.jpg";
+const instructorImage = "/images/edusphere-instructor.jpg";
 
 export default function Home() {
   const featured = trpc.catalog.featured.useQuery();
