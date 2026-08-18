@@ -2,6 +2,22 @@
 
 EduSphere is a full-stack learning management platform with public discovery, role-aware student and instructor workspaces, administration tools, course authoring, lesson progress, assessments, certificates, and Stripe Checkout for paid courses.
 
+## Screenshots / Preview
+
+The following images are captured from the running EduSphere application.
+
+| Landing page | Course discovery |
+|---|---|
+| ![EduSphere landing page](https://edusphere-ue2k9nsu.manus.space/manus-storage/landing_a9bf9804.png) | ![EduSphere course catalog](https://edusphere-ue2k9nsu.manus.space/manus-storage/catalog_dd8f0145.png) |
+| **Landing page:** Editorial learning-platform introduction, responsive navigation, and discovery calls to action. | **Course catalog:** Searchable course exploration with category, level, and price filters. |
+
+| Course detail | Administrator dashboard |
+|---|---|
+| ![EduSphere course detail](https://edusphere-ue2k9nsu.manus.space/manus-storage/course-detail_db7c0861.png) | ![EduSphere administrator dashboard](https://edusphere-ue2k9nsu.manus.space/manus-storage/admin-dashboard_32733fa7.png) |
+| **Course detail:** Course outcomes, curriculum metadata, enrollment state, and free-enrollment call to action. | **Administrator dashboard:** Platform-management navigation and operational overview. |
+
+> Student and instructor dashboards require authenticated accounts assigned to those specific roles. They are intentionally not represented by a fabricated preview.
+
 ## Platform capabilities
 
 | Area | Included capabilities |
