@@ -95,7 +95,7 @@ export async function getCourseCatalog(filters: { query?: string; categoryId?: n
   }
 
   return db
-    .select({ course: courses, instructorName: users.name, instructorHeadline: users.headline, categoryName: categories.name, categorySlug: categories.slug })
+    .select({ course: courses, instructorName: users.name, instructorHeadline: users.headline, categoryName: categories.name, categorySlug: categories.slug, enrollmentCount: sql<number>`(SELECT COUNT(*) FROM ${enrollments} WHERE ${enrollments.courseId} = ${courses.id})` })
     .from(courses)
     .leftJoin(users, eq(courses.instructorId, users.id))
     .leftJoin(categories, eq(courses.categoryId, categories.id))
@@ -120,7 +120,8 @@ export async function getCourseBySlug(slug: string) {
     db.select().from(lessons).where(eq(lessons.courseId, item.course.id)).orderBy(asc(lessons.sortOrder)),
     db.select().from(quizzes).where(eq(quizzes.courseId, item.course.id)).orderBy(asc(quizzes.sortOrder)),
   ]);
-  return { ...item, sections: sectionRows, lessons: lessonRows, quizzes: quizRows };
+  const [enrollmentTotal] = await db.select({ count: count() }).from(enrollments).where(eq(enrollments.courseId, item.course.id));
+  return { ...item, enrollmentCount: Number(enrollmentTotal?.count ?? 0), sections: sectionRows, lessons: lessonRows, quizzes: quizRows };
 }
 
 export async function getEnrollmentForCourse(userId: number, courseId: number) {

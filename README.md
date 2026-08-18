@@ -24,6 +24,16 @@ pnpm install
 pnpm dev
 ```
 
+## Showcase catalog seed
+
+EduSphere uses the configured relational database for its application data; it does not introduce a separate MongoDB instance. Populate the public showcase catalog with the idempotent seed command below. It creates twelve published courses, twelve categories, two instructor profiles, sixty lessons, and twelve functional quizzes in the real application database.
+
+```bash
+pnpm seed:showcase
+```
+
+The process is safe to re-run: it refreshes only the showcase courses identified by their slugs. Course enrollment totals are calculated from the real enrollment table and start at zero; the platform deliberately does not manufacture learner ratings, reviews, or enrollment activity.
+
 Run type checks, tests, and a production build before release.
 
 ```bash

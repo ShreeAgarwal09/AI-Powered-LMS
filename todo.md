@@ -21,4 +21,15 @@
 - [x] Add Vitest coverage for core authorization, enrollment, progress, quiz grading, and certificate eligibility workflows.
 - [x] Verify desktop and mobile layouts, resolve errors, and refine the visual system for a polished premium experience.
 - [x] Create a secure server test for the Stripe-enforced paid enrollment workflow.
-- [ ] Create a final checkpoint and deliver the verified EduSphere project.
+- [x] Create a final checkpoint and deliver the verified EduSphere project.
+- [x] Audit the current EduSphere data schema, existing course endpoints, and seed capabilities before changing the data layer.
+- [x] Add the missing database fields and query data required to display real course duration and enrollment count.
+- [x] Create an idempotent seed script for twelve published courses across the requested education categories, with lessons, quizzes, thumbnails, and instructor assignments.
+- [x] Run the seed process against the configured relational database and verify all seeded records, lessons, and assessments exist.
+- [x] Update course catalog and detail screens to show seeded real data, including duration, enrolled learner count, and the appropriate enrollment state.
+- [x] Verify API-backed catalog search, filters, course details, free enrollment, learner dashboard course display, and role-based access with the seeded catalog.
+- [x] Add regression tests and documentation for the EduSphere showcase catalog seed process.
+- [x] Exercise and document seeded catalog search plus every category, level, and price filter through the real backend API.
+- [x] Add seed-focused regression coverage for the published catalog, curriculum, and assessment records.
+- [x] Verify and document every seeded category, level, and price-filter result against the live catalog API, including zero-result paid-course behavior.
+- [ ] Save a checkpoint and deliver the verified seeded-catalog update.
