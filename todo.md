@@ -72,7 +72,9 @@
 - [x] Verify the README preview presentation and push the documentation-only update to GitHub.
 - [x] Add a concise, verified Why This Project Stands Out section to the README.
 - [x] Push and verify the documentation-only differentiator update on GitHub.
-- [ ] Inspect Vercel configuration, build outputs, and server entrypoints to identify why source code is being served.
-- [ ] Implement the minimum Vercel-compatible static build and API routing configuration without changing application functionality.
-- [ ] Verify the production build and deployment contract locally.
-- [ ] Push the Vercel deployment fix to GitHub and provide redeploy guidance.
+- [x] Inspect Vercel configuration, build outputs, and server entrypoints to identify why source code is being served.
+- [x] Implement the minimum Vercel-compatible static build and API routing configuration without changing application functionality.
+- [x] Verify the production build and deployment contract locally.
+- [x] Push the Vercel deployment fix to GitHub and provide redeploy guidance.
+- [ ] Correct the Vercel SPA fallback so built static assets, API routes, and public files are not rewritten to the HTML entrypoint.
+- [ ] Validate Vercel-style static assets, SPA deep links, and API function routing locally before final redeploy guidance.
