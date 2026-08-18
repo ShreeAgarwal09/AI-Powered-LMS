@@ -11,9 +11,13 @@ EduSphere is a full-stack learning management platform with public discovery, ro
 | Instructors | Course drafts, pricing, sections, lessons, assessments, questions, publication, enrollment insights, and revenue overview. |
 | Administrators | Role management, course moderation, category management, enrollment totals, and platform statistics. |
 
+## Tech stack
+
+EduSphere is built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS 4**, **Express 4**, **tRPC 11**, **Drizzle ORM**, and a **MySQL/TiDB-compatible database**. The interface uses shadcn/ui primitives, Lucide icons, and a managed OAuth integration. Stripe Checkout is used for optional paid-course enrollment.
+
 ## Architecture
 
-The project uses the managed React, Express, tRPC, Drizzle, and MySQL/TiDB scaffold. Authentication is supplied through the managed OAuth flow, while all domain authorization is enforced with student-, instructor-, and administrator-specific server procedures. The relational schema covers users, categories, courses, curriculum, enrollments, lesson progress, quizzes, quiz attempts, certificates, and purchases with database-level foreign keys.
+The application separates the React client from the Express/tRPC server. Authentication is supplied through the managed OAuth flow, while domain authorization is enforced with student-, instructor-, and administrator-specific server procedures. The relational schema covers users, categories, courses, curriculum, enrollments, lesson progress, quizzes, quiz attempts, certificates, and purchases with database-level foreign keys.
 
 ## Local development
 
@@ -23,6 +27,23 @@ Install dependencies and start the development server with the commands below.
 pnpm install
 pnpm dev
 ```
+
+### Prerequisites and configuration
+
+Use Node.js 22+ and pnpm 10+. Copy the example environment file, then provide values through your deployment platform or a local `.env` file. Never commit a populated `.env` file.
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | MySQL/TiDB-compatible connection string. |
+| `JWT_SECRET` | Server-side session signing secret. |
+| `VITE_APP_ID`, `OAUTH_SERVER_URL`, `VITE_OAUTH_PORTAL_URL` | OAuth application configuration. |
+| `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `VITE_STRIPE_PUBLISHABLE_KEY` | Optional Stripe Checkout and webhook configuration. |
+
+The managed runtime also provides additional integration values. See `server/_core/env.ts` for the supported server-side environment contract.
 
 ## Showcase catalog seed
 
@@ -55,6 +76,16 @@ Do not insert demo users, courses, or payments directly into the production data
 ## Payments
 
 Paid course enrollment uses Stripe Checkout. A Stripe test sandbox must be claimed in the project payment settings before transactions can be tested. The webhook endpoint is `/api/stripe/webhook`; configure the corresponding Stripe webhook secret through Settings → Payment. Test checkout with Stripe’s documented sandbox card `4242 4242 4242 4242` once the sandbox is active.
+
+## Quality checks
+
+Run the following before opening a pull request or publishing changes:
+
+```bash
+pnpm check
+pnpm test
+pnpm build
+```
 
 ## Structure
 
