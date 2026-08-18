@@ -88,6 +88,7 @@
 - [x] Push all verified production-readiness fixes and deliver the comprehensive deployment report.
 - [x] Replace the contact form’s non-persistent success behavior with validated database-backed message submission.
 - [x] Audit all environment variables used by deployed source code and identify their service ownership.
-- [x] Configure only project-managed values that are safely available through the current integration.
+- [x] Determine whether project-managed production values can be configured through the current Vercel integration and document the supported path.
 - [ ] Verify production readiness by feature and document external credentials or provider settings still required.
-- [x] Resolve the Vercel function type-compilation failure so `/api/trpc` is emitted and public catalog data is reachable in production.
+- [ ] Resolve the Vercel function type-compilation failure so `/api/trpc` is emitted and public catalog data is reachable in production.
+- [x] Audit HTML analytics placeholders and remove the unconfigured optional analytics tag from the production build.

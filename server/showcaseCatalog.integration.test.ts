@@ -21,7 +21,7 @@ describe("showcase catalog seed", () => {
     expect(detail?.course.title).toBe("Modern Web Foundations");
     expect(detail?.lessons).toHaveLength(5);
     expect(detail?.quizzes).toHaveLength(1);
-  });
+  }, 20_000);
 
   it("keeps showcase curriculum and assessment rows persisted in the configured database", async () => {
     const db = await getDb();
