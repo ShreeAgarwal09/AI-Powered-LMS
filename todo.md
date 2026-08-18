@@ -67,6 +67,8 @@
 - [x] Deliver the repository URL and required separate environment configuration.
 - [x] Update only the AI-Powered-LMS GitHub description and requested repository topics.
 - [x] Verify the GitHub metadata update and confirm no project code changed.
-- [ ] Capture authentic running-project screenshots for the landing/catalog, course detail/learning, student, instructor, and admin views.
-- [ ] Add a polished Screenshots / Preview section with hosted real UI captures and captions to the README.
-- [ ] Verify the README preview presentation and push the documentation-only update to GitHub.
+- [x] Capture authentic running-project screenshots for the landing/catalog, course detail/learning, student, instructor, and admin views.
+- [x] Add a polished Screenshots / Preview section with hosted real UI captures and captions to the README.
+- [x] Verify the README preview presentation and push the documentation-only update to GitHub.
+- [ ] Add a concise, verified Why This Project Stands Out section to the README.
+- [ ] Push and verify the documentation-only differentiator update on GitHub.

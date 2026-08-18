@@ -18,6 +18,16 @@ The following images are captured from the running EduSphere application.
 
 > Student and instructor dashboards require authenticated accounts assigned to those specific roles. They are intentionally not represented by a fabricated preview.
 
+## Why This Project Stands Out
+
+- **Role-aware learning platform:** Server-side authorization separates student, instructor, and administrator capabilities across the application.
+- **Complete course lifecycle:** The platform supports course discovery, enrollment, curriculum delivery, lesson progress, quizzes, and course completion paths.
+- **Relational domain design:** Drizzle ORM models users, courses, curriculum, enrollments, progress, assessments, certificates, and purchases on a MySQL/TiDB-compatible database.
+- **Measured learner workflow:** Lesson progress and assessment attempts are persisted and surfaced through learner-facing course and dashboard views.
+- **Verifiable achievement:** Completion eligibility is connected to certificate records and a dedicated certificate presentation route.
+- **Payment-ready enrollment:** Stripe Checkout and verified webhook fulfillment support paid course enrollment while retaining free enrollment paths.
+- **Typed full-stack architecture:** React, TypeScript, Express, and tRPC provide end-to-end typed contracts, with managed OAuth for authenticated sessions.
+
 ## Platform capabilities
 
 | Area | Included capabilities |
