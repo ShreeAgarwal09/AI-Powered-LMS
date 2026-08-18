@@ -22,3 +22,7 @@ The complete live filter matrix was also exercised. Each category ID from 1 thro
 | Advanced | 0 courses |
 | Free | 12 courses |
 | Paid | 0 courses |
+
+## UI Refresh Verification
+
+The refreshed public header, catalog discovery page, AI Study Assistant screen, administrator workspace, and mobile navigation were visually reviewed. Desktop captures confirmed the new navy-and-sky SaaS navigation, premium course-discovery hero, filter surface, and AI learning companion layout. Mobile captures at 375 × 812 confirmed that the header collapses to a touch-friendly menu and that the public, catalog, and AI assistant surfaces retain readable hierarchy without horizontal overflow.
