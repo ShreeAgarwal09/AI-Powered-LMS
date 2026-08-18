@@ -78,6 +78,12 @@
 - [x] Push the Vercel deployment fix to GitHub and provide redeploy guidance.
 - [x] Correct the Vercel SPA fallback so built static assets, API routes, and public files are not rewritten to the HTML entrypoint.
 - [x] Validate Vercel-style static assets, SPA deep links, and API function routing locally before final redeploy guidance.
-- [ ] Audit live and source image URLs, Vite output, and Vercel static routing to identify the production image failure.
-- [ ] Apply the minimum production-safe fix for existing image delivery without altering the UI.
-- [ ] Verify image assets in the production build, run tests, and push the fix to GitHub.
+- [x] Audit live and source image URLs, Vite output, and Vercel static routing to identify the production image failure.
+- [x] Apply the minimum production-safe fix for existing image delivery without altering the UI.
+- [x] Verify image assets in the production build, run tests, and push the fix to GitHub.
+- [ ] Inventory all production routes, serverless API paths, storage assets, environment dependencies, and database-backed workflows.
+- [ ] Audit frontend routes, API contracts, database integrity, authentication boundaries, payments, static assets, and Vercel build/routing behavior.
+- [ ] Fix every verified code or deployment configuration issue that can be safely resolved without replacing existing features.
+- [ ] Execute production-style route, asset, API, build, type, test, and database verification.
+- [ ] Push all verified production-readiness fixes and deliver the comprehensive deployment report.
+- [ ] Replace the contact form’s non-persistent success behavior with validated database-backed message submission.

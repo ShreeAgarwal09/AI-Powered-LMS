@@ -156,6 +156,15 @@ export const purchases = mysqlTable("purchases", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 }, (table) => [index("purchases_user_idx").on(table.userId), index("purchases_course_idx").on(table.courseId)]);
 
+export const contactMessages = mysqlTable("contactMessages", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 120 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  subject: varchar("subject", { length: 240 }).notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => [index("contact_messages_created_idx").on(table.createdAt)]);
+
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 export type Course = typeof courses.$inferSelect;

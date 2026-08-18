@@ -103,6 +103,12 @@ export const appRouter = router({
     }),
   }),
 
+  contact: router({
+    submit: publicProcedure
+      .input(z.object({ name: z.string().trim().min(2).max(120), email: z.string().trim().email().max(320), subject: z.string().trim().min(2).max(240), message: z.string().trim().min(10).max(5000) }))
+      .mutation(({ input }) => db.createContactMessage(input)),
+  }),
+
   catalog: router({
     categories: publicProcedure.query(() => db.getCategories()),
     list: publicProcedure

@@ -3,6 +3,7 @@ import { drizzle } from "drizzle-orm/mysql2";
 import {
   categories,
   certificates,
+  contactMessages,
   courses,
   enrollments,
   InsertUser,
@@ -60,6 +61,13 @@ export async function getUserByOpenId(openId: string) {
   if (!db) return undefined;
   const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
   return result[0];
+}
+
+export async function createContactMessage(input: { name: string; email: string; subject: string; message: string }) {
+  const db = await getDb();
+  if (!db) throw new Error("The contact message service is unavailable.");
+  await db.insert(contactMessages).values(input);
+  return { success: true } as const;
 }
 
 export async function getCategories() {
