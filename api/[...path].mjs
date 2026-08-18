@@ -8,8 +8,10 @@ import { appRouter } from "../server/routers";
 import { handleStripeWebhook } from "../server/stripe";
 
 /**
- * Vercel invokes this catch-all Express application for API paths. Static
- * assets are emitted to dist/public by Vite and are served by Vercel directly.
+ * Catch-all Vercel Function for tRPC, OAuth, Stripe, and storage-proxy routes.
+ * JavaScript avoids Vercel's isolated function type-checker conflicting with
+ * the project's Express 4 type definitions; imported application code remains
+ * TypeScript-checked through the normal project `pnpm check` command.
  */
 const app = express();
 

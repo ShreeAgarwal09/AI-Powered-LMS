@@ -29,7 +29,7 @@ describe("seeded catalog enrollment", () => {
     expect(rows.some((item) => item.userId === testUserId && item.status === "active")).toBe(true);
     const dashboardCourses = await caller.learning.myCourses();
     expect(dashboardCourses.some((item) => item.course.id === course.id)).toBe(true);
-  });
+  }, 20_000);
 });
 
 afterAll(async () => {

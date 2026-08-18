@@ -81,9 +81,13 @@
 - [x] Audit live and source image URLs, Vite output, and Vercel static routing to identify the production image failure.
 - [x] Apply the minimum production-safe fix for existing image delivery without altering the UI.
 - [x] Verify image assets in the production build, run tests, and push the fix to GitHub.
-- [ ] Inventory all production routes, serverless API paths, storage assets, environment dependencies, and database-backed workflows.
-- [ ] Audit frontend routes, API contracts, database integrity, authentication boundaries, payments, static assets, and Vercel build/routing behavior.
-- [ ] Fix every verified code or deployment configuration issue that can be safely resolved without replacing existing features.
-- [ ] Execute production-style route, asset, API, build, type, test, and database verification.
-- [ ] Push all verified production-readiness fixes and deliver the comprehensive deployment report.
-- [ ] Replace the contact form’s non-persistent success behavior with validated database-backed message submission.
+- [x] Inventory all production routes, serverless API paths, storage assets, environment dependencies, and database-backed workflows.
+- [x] Audit frontend routes, API contracts, database integrity, authentication boundaries, payments, static assets, and Vercel build/routing behavior.
+- [x] Fix every verified code or deployment configuration issue that can be safely resolved without replacing existing features.
+- [x] Execute production-style route, asset, API, build, type, test, and database verification.
+- [x] Push all verified production-readiness fixes and deliver the comprehensive deployment report.
+- [x] Replace the contact form’s non-persistent success behavior with validated database-backed message submission.
+- [x] Audit all environment variables used by deployed source code and identify their service ownership.
+- [x] Configure only project-managed values that are safely available through the current integration.
+- [ ] Verify production readiness by feature and document external credentials or provider settings still required.
+- [x] Resolve the Vercel function type-compilation failure so `/api/trpc` is emitted and public catalog data is reachable in production.
