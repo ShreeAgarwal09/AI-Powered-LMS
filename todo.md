@@ -70,5 +70,9 @@
 - [x] Capture authentic running-project screenshots for the landing/catalog, course detail/learning, student, instructor, and admin views.
 - [x] Add a polished Screenshots / Preview section with hosted real UI captures and captions to the README.
 - [x] Verify the README preview presentation and push the documentation-only update to GitHub.
-- [ ] Add a concise, verified Why This Project Stands Out section to the README.
-- [ ] Push and verify the documentation-only differentiator update on GitHub.
+- [x] Add a concise, verified Why This Project Stands Out section to the README.
+- [x] Push and verify the documentation-only differentiator update on GitHub.
+- [ ] Inspect Vercel configuration, build outputs, and server entrypoints to identify why source code is being served.
+- [ ] Implement the minimum Vercel-compatible static build and API routing configuration without changing application functionality.
+- [ ] Verify the production build and deployment contract locally.
+- [ ] Push the Vercel deployment fix to GitHub and provide redeploy guidance.
